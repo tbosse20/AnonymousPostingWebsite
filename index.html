@@ -1,0 +1,123 @@
+<html>
+    <head>
+
+        <style>
+            
+            body {
+                background-color: #f2f5f5;
+            }
+            
+            #strip {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+            
+            body button {
+                font-family: serif;
+            }
+            
+            #general {
+                width: 50%;
+                height: 100%;
+                top: 0px;
+                background-color: lavender;
+                padding: 50px;
+                max-width: 1000px;
+                min-width: 600px;
+            }
+            
+            .quote {
+                font-style: italic;
+                opacity: 0.8;
+            }
+            
+            h1, h2 {
+                text-transform: uppercase;
+            }
+            
+            #name {
+                padding-top: 30%;
+                margin: -15px;
+                font-size: 450%;
+            }
+            
+            #title {
+                font-size: 180%;
+            }
+            
+            h1, h2, span, p {
+                color: #0c4046;
+            }
+            
+            p {
+                width: 75%;
+            }
+            
+            button {
+                font-size: 130%;
+                color: lavender;
+                text-transform: uppercase;
+                opacity: .5;
+                transition: 0.5s;
+                width: 15%;
+                min-width: 110px;
+                height: 50px;
+                border: none;
+                background-color: darkred;
+                margin: .5%;
+            }
+            
+            button:hover {
+                color: white;
+                opacity: 1
+            }
+            
+            @media only screen and (max-width: 600px) {
+                #buttons {
+                    width: 200px;
+                    padding: 5px;
+                }
+                
+                #buttons button {
+                    margin: 5px;
+                }
+            }
+            
+        </style>
+        
+        <title>Tonko Bossen</title>
+        <script>
+            function loadBtns() {
+                const pages = ["About", "Project", "Skills", "Contact", "Forum"];
+                const btns = document.getElementById("buttons");
+                for (var i in pages) {
+                    const btn = document.createElement("button");
+                    btn.innerHTML = pages[i];
+                    
+                    const link = document.createElement("a");
+                    link.href = pages[i].toLowerCase() + ".html";
+                    link.append(btn);
+                    btns.append(link);
+                }
+            }
+        </script>
+    </head>
+    <body onload="loadBtns()">
+        <div id="strip">
+            <center>
+                <div id="general">
+                    <h1 id="name">Tonko Bossen</h1>
+                    <h2 id="title">AI and Computer Vision Engineer</h2>
+                    <br>
+                    <span class="quote">Life's unknown and mysterious. Like what will happen after you've had Taco Bell..</span>
+                    <p>Medialogy student starting "Artificial Intelligence, Vision and Sound" master degree at Aalborg University. </p>
+                    <br>
+                    <div id="buttons"></div>
+                </div>
+            </center>
+        </div>
+    </body>
+</html>
