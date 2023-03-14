@@ -1,16 +1,105 @@
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script type="text/javascript" src="forum.json"></script>
         <script>
-        </script>
+            
+            function loadForum() {
+                const forum = document.getElementById("forum");
+                forum.innerHTML = "";
+                
+                const format = data.format;
 
+                for (const i in data.posts) {
+                    const post = data.posts[i];
+                    const div = document.createElement("div");
+                    div.className = "post";
+                    
+                    for (const key in post) {
+                        if (key == "id") continue;
+                        const element = document.createElement(format[key]);
+                        element.append(document.createTextNode(post[key]));
+                        element.className = key;
+                        div.append(element);
+                    }
+                    
+                    const comment = document.createElement("button");
+                    comment.append(document.createTextNode("Comment"));
+                    div.append(comment);
+                    
+                    forum.append(div);
+                }
+            }
+            
+        </script>
+        <link rel="stylesheet" type="text/css" href="form.css" />
         <style>
+            
+            #form {
+                width: 400px;
+            }
+            
+            #inputs {
+                width: 100%;
+            }
+            
+            #message, li:has(#message) {
+                height: 200px;
+                width: 100%;
+            }
+            
+            #message {
+                padding: 10px;
+                resize: none;
+                background-color: #fcfcff;
+            }
+            
+            #forum {
+                margin: 10px;
+                padding: 10px;
+                background-color: aliceblue;
+            }
+            
+            .post {
+                padding: 10px;
+                padding-bottom: 30px;
+                margin: 20px;
+                width: 50%;
+                background-color: beige;
+            }
+            
+            .user, .message {
+                padding: 0px;
+                margin: 5px;
+                text-align: left;
+            }
+            
+            .date {
+                float: left;
+            }
+            
+            .likes {
+                float: right;
+            }
+            
+            .date, .likes {
+                font-style: italic;
+            }
+            
         </style>
         <title>Tonko Bossen - Forum</title>
     </head>
-    <body>
+    <body onload="loadForum()">
         <div id="strip">
             <center>
+                <form id="form">
+                    <ul id="inputs">
+                        <li><textarea type="text" name="message" id="message" aria-required="true"></textarea></li>
+                        <li><button type="button" name="send" id="send">Post</button></li>
+                    </ul>
+                </form>
+                
+                <div id="forum">Loading..</div>
+                
             </center>
         </div>
     </body>
