@@ -8,7 +8,7 @@
     <body>
         <div id="strip">
             <center>
-                <form id="form" action="/webDevMiniProject/gfg.php" method="POST" name="myForm">
+                <form id="form" action="/webDevMiniProject/postJSON.php" method="POST" name="myForm">
                     <ul id="inputs">
                         <li><textarea type="text" name="msg" id="message" aria-required="true"></textarea></li>
                         <li><button type="submit" name="submit" id="submit">Post</button></li>
