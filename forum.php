@@ -8,22 +8,27 @@
     <body>
         <div id="strip">
             <center>
-                <form id="form" action="postForum.php" method="POST" name="myForm">
+                <form id="form" action="/webDevMiniProject/gfg.php" method="POST" name="myForm">
                     <ul id="inputs">
                         <li><textarea type="text" name="msg" id="message" aria-required="true"></textarea></li>
-                        <li><button type="button" name="submit" id="submit">Post</button></li>
+                        <li><button type="submit" name="submit" id="submit">Post</button></li>
                     </ul>
                 </form>
+                <?php
+                    if (isset($_GET['status'])) {
+                        echo $_GET["status"];
+                    }
+                ?>
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
                 <script>
                     // https://stackoverflow.com/questions/30680562/send-form-data-with-jquery-ajax-json
                     $(document).ready(function(){
                         // click on button submit
-                        $("#submit").on('click', function(){
+                        $("#susbmit").on('click', function(){
                             // send ajax
                             $.ajax({
-                                url: 'postForum.php', // url where to submit the request
+                                url: '/webDevMiniProject/gfg.php', // url where to submit the request
                                 type : "POST", // type of action POST || GET
                                 dataType : 'json', // data type
                                 data : $("#form").serialize(), // post data || get data
@@ -39,24 +44,30 @@
                 </script>
                 
                 <div id="forum" ng-app="myApp" ng-controller="myCtrl">
-                    <div class="post" ng-repeat="x in posts">
-                        <h2 class="user">{{x.user}}</h2>
-                        <span class="date">{{x.date}}</span>
+                    <div class="post" ng-repeat="post in posts | reverse">
+                        <h2 class="user">{{post.user}}</h2>
+                        <span class="date">{{post.date}}</span>
                         <br>
-                        <p class="message">{{x.message}}</p>
-                        <span class="likes">{{x.likes}}</span>
+                        <p class="message">{{post.msg}}</p>
+                        <span class="likes">{{post.likes}}</span>
                         <input type="button" class="comment" value="Comment">
                     </div>
                 </div>
                     
-                    <script>
+                <script>
                     var app = angular.module("myApp", []);
                     app.controller("myCtrl", function($scope, $http) {
                         $http.get("forum.json").then(function (response) {
-                            $scope.posts = response.data.posts;
+                            $scope.posts = response.data;
                         });
                     });
-                    </script>
+
+                    app.filter('reverse', function() {
+                        return function(items) {
+                            return items.slice().reverse();
+                        };
+                    });
+                </script>
                 
             </center>
         </div>

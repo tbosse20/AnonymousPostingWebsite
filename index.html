@@ -12,6 +12,9 @@
                     
                     const link = document.createElement("a");
                     link.href = pages[i].toLowerCase() + ".html";
+                    if (pages[i] == "Forum") {
+                        link.href = pages[i].toLowerCase() + ".php";
+                    }
                     link.append(btn);
                     btns.append(link);
                 }
