@@ -1,23 +1,15 @@
-data = {
-    "format": {
-        "id": null,
-        "user": "h2",
-        "message": "p",
-        "date": "span",
-        "likes": "span",
-    }, "posts": [
-        {
-            "id": 1231,
-            "user": "teacherbride1",
-            "message": "Weddingbee is a super popular website dedicated to all things weddings. \n Beyond a blog, Weddingbee also has a busy forum powered by bbPress. After WordPress.org, this is probably the next most busy bbPress example on this list. \n Weddingbee is also a good example of how you can use bbPress extensions to add new functionality to your forum. For example, Weddingbee has added “Helpful” ratings, which you can see in the screenshot above.",
-            "date": 1585526400000,
-            "likes": -103023,
-        }, {
-            "id": 1232,
-            "user": null,
-            "message": "Ute Hub is a popular sports forum for discussing the University of Utah’s sports teams. \n Over 2,000 users have created 12,000+ topics and 80,000+ replies. \n Like Weddingbee, Ute Hub also makes use of a lot of extensions, like upvotes and downvotes. \n They even have a mobile app that lets people interact with the bbPress forum on the go. I’m not sure which app solution they’re using, but there are tools to help you do something similar for your forum. bbApp is a good place to start.",
-            "date": 1585526400000,
-            "likes": 2,
-        }
-    ]
+{
+    "posts": [{
+        "id": 1231,
+        "user": "teacherbride1",
+        "message": "Weddingbee is a super popular website dedicated to all things weddings. \n Beyond a blog, Weddingbee also has a busy forum powered by bbPress. After WordPress.org, this is probably the next most busy bbPress example on this list. \n Weddingbee is also a good example of how you can use bbPress extensions to add new functionality to your forum. For example, Weddingbee has added “Helpful” ratings, which you can see in the screenshot above.",
+        "date": 1585526400000,
+        "likes": -103023
+    }, {
+        "id": 1232,
+        "user": null,
+        "message": "Ute Hub is a popular sports forum for discussing the University of Utah’s sports teams. \n Over 2,000 users have created 12,000+ topics and 80,000+ replies. \n Like Weddingbee, Ute Hub also makes use of a lot of extensions, like upvotes and downvotes. \n They even have a mobile app that lets people interact with the bbPress forum on the go. I’m not sure which app solution they’re using, but there are tools to help you do something similar for your forum. bbApp is a good place to start.",
+        "date": 1585526400000,
+        "likes": 2
+        }]
 }
