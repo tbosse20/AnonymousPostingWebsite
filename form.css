@@ -22,12 +22,12 @@ li {
     float: left;
 }
 
-#inputs, #send {
+#inputs, #submit {
     float: right;
     margin: 0px;
 }
 
-li:has(#send) {
+li:has(#submit) {
     height: auto;
     margin: 0px;
 }
