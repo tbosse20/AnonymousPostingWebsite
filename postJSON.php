@@ -6,35 +6,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     function get_data($file_name) {
 
+        $action = $_POST["action"];
+
 		if (file_exists("$file_name")) {
 			$current_data=file_get_contents("$file_name");
 			$array_data=json_decode($current_data, true);
-							
-			$extra=array(
-                "id"        => 0,
-                "user"      => "Anonymous",
-                "msg"       => $_POST["msg"],
-                "dateStamp" => 0,
-                "likes"     => 0
-			);
-			$array_data[]=$extra;
-			echo "file exist<br/>";
-			return json_encode($array_data);
+            echo "file exist<br/>";
+            
 		} else {
-			$datae=array();
-			$datae[]=array(
-                "id"        => 0,
+			$array_data=array();
+            echo "file not exist<br/>";
+
+        }
+
+        if ($action == "Post") {
+            $extra=array(
+                "id"        => count($array_data),
                 "user"      => "Anonymous",
                 "msg"       => $_POST["msg"],
-                "dateStamp" => 0,
-                "likes"     => 0
-			);
-			echo "file not exist<br/>";
-			return json_encode($datae);
-		}
+                "dateStamp" => time(),
+                "likes"     => 0,
+                "comments"  => array(),
+            );
+            $array_data[] = $extra;
+
+        } else if ($action == "Comment") {
+            $comment = $_POST["cmt-msg"];
+            $postID = $_POST["id"];
+            
+            $array_data[$postID]["comments"][] = $comment;
+            
+        } else if ($action == "Like") {
+
+        }
+
+        return json_encode($array_data);
+		
     }
 
-	$file_name = 'forum'. '.json';
+	$file_name = 'forum.json';
 
     if (file_put_contents("$file_name", get_data($file_name))) {
 		echo 'success';
