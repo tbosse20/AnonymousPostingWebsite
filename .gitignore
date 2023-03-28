@@ -24,7 +24,6 @@
     *.sdf
     *.pyc
     *.xml
-    *.log
     ipch/
     obj/
     [Bb]in
@@ -45,3 +44,4 @@
     
     # Office Temp Files
     ~$*
+*.log
