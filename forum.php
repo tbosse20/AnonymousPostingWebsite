@@ -10,6 +10,7 @@
 <body>
     <div id="strip">
         <center>
+            <a href="#anchor">Jump to section 2</a><br />
             <form id="form" action="/webDevMiniProject/postJSON.php" method="POST" name="myForm">
                 <h2>Start new thread</h2>
                 <ul id="inputs">
@@ -23,7 +24,6 @@
                     echo $_GET["status"];
                 }
             ?>
-                
             <div id="forum" ng-app="myApp" ng-controller="myCtrl">
                 <div class="post" ng-repeat="post in posts">
                     <h2 class="user">{{post.user}}</h2>
@@ -38,14 +38,17 @@
                     <div class="comments" ng-repeat="comment in post.comments track by $index">
                         <div class="comment">{{comment}}</div>
                     </div>
-                    <form action="/webDevMiniProject/postJSON.php" method="POST">
+                    <form id="form-{{post.id}}" action="/webDevMiniProject/postJSON.php" method="POST">
                         <input type="hidden" name="action" value="Comment">
                         <input type="hidden" name="id" value="{{post.id}}">
-                        <input type="text" class="cmt-msg" name="cmt-msg" id="cmt-{{post.id}}">
-                        <input type="submit" class="cmt-btn" value="Comment" alt="{{post.id}}">
+                        <input type="text" class="cmt-msg" name="cmt-msg" id="{{'cmt-' + post.id}}">
+                        <input type="button" class="cmt-btn" value="Comment" alt="{{post.id}}">
                     </form>
+                    <input type="hidden" id="{{post.id}}-anchor">
                 </div>
             </div>
+            <span id="anchor">anchor</span>    
+
         </center>
     </div>
 </body>

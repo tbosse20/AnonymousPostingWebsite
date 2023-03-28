@@ -4,9 +4,10 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    function get_data($file_name) {
+    $postID = $_POST["id"];
 
-        $action = $_POST["action"];
+    function get_data($file_name, $postID) {
+
 
 		if (file_exists("$file_name")) {
 			$current_data=file_get_contents("$file_name");
@@ -18,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "file not exist<br/>";
 
         }
-
+        
+        $action = $_POST["action"];
         if ($action == "Post") {
             $extra=array(
                 "id"        => count($array_data),
@@ -32,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         } else if ($action == "Comment") {
             $comment = $_POST["cmt-msg"];
-            $postID = $_POST["id"];
             
             $array_data[$postID]["comments"][] = $comment;
             
@@ -46,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$file_name = 'forum.json';
 
-    if (file_put_contents("$file_name", get_data($file_name))) {
+    if (file_put_contents("$file_name", get_data($file_name, $postID))) {
 		echo 'success';
         $status = "success";
 	} else {
@@ -56,11 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     ob_start(); // ensures anything dumped out will be caught
 
-    // do stuff here
-    $url = 'http://localhost/webDevMiniProject/forum.php'; // this can be set based on whatever
+    $url = 'http://localhost/webDevMiniProject/forum.php';
 
-    // no redirect
-    header( "Location: $url" . "?status=" . $status);
+    echo $postID;
+    header( "Location: $url" . "?status=" . $status . "#" . $postID . "-anchor");
 }
 	
 ?>

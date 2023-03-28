@@ -1,17 +1,13 @@
 // https://stackoverflow.com/questions/30680562/send-form-data-with-jquery-ajax-json
-$(document).on('click', '.dcomment', function() { 
+$(document).on('click', '.cmt-btn', function() {
     const id = this.alt;
-    alert("#cmt-" + id);
-    alert($("#cmt-" + id).value);
+    var element = angular.element($("forum"));
+    element.scope().$apply();
     $.ajax({
         url: '/webDevMiniProject/postJSON.php', // url where to submit the request
         type : "POST", // type of action POST || GET
         dataType : 'json', // data type
-        data : {
-            "action": "comment",
-            "postID": id,
-            "cmt-msg": $("#cmt-" + id).value
-        },
+        data : $("#form-" + id).serialize(),
         success : function(result) { console.log(result); },
         error: function(xhr, resp, text) { console.log(xhr, resp, text); }
     });
