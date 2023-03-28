@@ -48,3 +48,13 @@
 .date, .likes {
     font-style: italic;
 }
+
+.comments {
+    margin: 5px;
+}
+
+.comment {
+    text-align: left;
+    color: black;
+    font-size: 100px;
+}

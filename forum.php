@@ -35,13 +35,13 @@
                         <span class="likes">{{post.likes}}</span>
                         <input type="button" class="like" value="Like" alt="{{post.id}}">
                         <div class="comments" ng-repeat="comment in post.comments track by $index">
-                            <span>{{comment}}</span>
+                            <div class="comment">{{comment}}</div>
                         </div>
                         <form action="/webDevMiniProject/postJSON.php" method="POST">
                             <input type="hidden" name="action" value="Comment">
                             <input type="hidden" name="id" value="{{post.id}}">
                             <input type="text" name="cmt-msg" id="cmt-{{post.id}}">
-                            <input type="submit" class="comment" value="Comment" alt="{{post.id}}">
+                            <input type="submit" value="Comment" alt="{{post.id}}">
                         </form>
                     </div>
                 </div>
