@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         }
 
-        return json_encode($array_data);
+        return json_encode($array_data, JSON_PRETTY_PRINT);
 		
     }
 

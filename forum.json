@@ -1,1 +1,38 @@
-[{"id":0,"user":"Anonymous","msg":"Testawd","dateStamp":0,"likes":0,"comments":["awdawd","awdawd","dddddd","Whaat crazy!","Whaa pracy!","Daaamn"]},{"id":1,"user":"Anonymous","msg":"Testawd","dateStamp":0,"likes":3.132,"comments":["awdawd","awdawd"]},{"id":0,"user":"Anonymous","msg":"","dateStamp":0,"likes":0,"comments":[]},{"id":0,"user":"Anonymous","msg":"","dateStamp":0,"likes":0,"comments":[]},{"id":4,"user":"Anonymous","msg":"Post it!?","dateStamp":1679957377,"likes":0,"comments":[]}]
+[
+    {
+        "id": 0,
+        "user": "Anonymous",
+        "msg": "How to tell if your peers are weird?? HELP!",
+        "dateStamp": 0,
+        "likes": 0,
+        "comments": [
+            "Ask them what they do on the weekend? If they drank all night long they are pretty normal, but you gotta bully them with it anyways..",
+            "What do you got against drinking?!",
+            "Rommel chill.. grab a beer.",
+            "You wont to come?1?",
+            "Some one said alcohol??!",
+            "Sure I could go for a drink",
+            "SPPPRRRUUTTEEEEEN!!!!!",
+            "Sure!"
+        ]
+    },
+    {
+        "id": 1,
+        "user": "Anonymous",
+        "msg": "What do you get when you mix bacon and .. video games ??",
+        "dateStamp": 0,
+        "likes": 3132,
+        "comments": [
+            "More bacon?",
+            "I don't get it.?"
+        ]
+    },
+    {
+        "id": 3,
+        "user": "Anonymous",
+        "msg": "Post it!?",
+        "dateStamp": 1679957377,
+        "likes": 0,
+        "comments": []
+    }
+]

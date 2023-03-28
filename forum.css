@@ -6,7 +6,8 @@
     width: 100%;
 }
 
-#message, li:has(#message) {
+#message,
+li:has(#message) {
     height: 200px;
     width: 100%;
 }
@@ -25,13 +26,13 @@
 
 .post {
     padding: 10px;
-    padding-bottom: 30px;
-    margin: 20px;
+    margin: 30px;
     width: 50%;
     background-color: beige;
 }
 
-.user, .message {
+.user,
+.message {
     padding: 0px;
     margin: 5px;
     text-align: left;
@@ -45,7 +46,8 @@
     float: right;
 }
 
-.date, .likes {
+.date,
+.likes {
     font-style: italic;
 }
 
@@ -55,6 +57,16 @@
 
 .comment {
     text-align: left;
-    color: black;
-    font-size: 100px;
+    color: rgb(70, 70, 70);
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid rgba(128, 128, 128, 0.219);
+}
+
+.cmt-msg {
+    margin: 10px;
+}
+
+.cmt-btn {
+    width: 100px;
 }
