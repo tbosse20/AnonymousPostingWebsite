@@ -18,6 +18,7 @@
                         <li><button type="submit" name="submit" id="submit">Post</button></li>
                     </ul>
                 </form>
+                
                 <?php
                     if (isset($_GET['status'])) {
                         echo $_GET["status"];
@@ -42,18 +43,18 @@
                             <input type="text" name="cmt-msg" id="cmt-{{post.id}}">
                             <input type="submit" value="Comment" alt="{{post.id}}">
                         </form>
+                        <input type="hidden" id="{{post.id + '-anchor'}}">
                     </div>
-                    <form id="form-{{post.id}}" action="/webDevMiniProject/postJSON.php" method="POST">
+                    <!--
+                    <form id="{{'form-' + post.id}}" action="/webDevMiniProject/postJSON.php" method="POST">
                         <input type="hidden" name="action" value="Comment">
                         <input type="hidden" name="id" value="{{post.id}}">
                         <input type="text" class="cmt-msg" name="cmt-msg" id="{{'cmt-' + post.id}}">
                         <input type="button" class="cmt-btn" value="Comment" alt="{{post.id}}">
                     </form>
-                    <input type="hidden" id="{{post.id}}-anchor">
+                    -->
                 </div>
             </div>
-            <span id="anchor">anchor</span>    
-
         </center>
     </div>
 </body>
