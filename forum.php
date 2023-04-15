@@ -32,27 +32,21 @@
                         <span class="date">{{post.date}}</span>
                         <br>
                         <p class="message">{{post.msg}}</p>
+                        <!--
                         <span class="likes">{{post.likes}}</span>
                         <input type="button" class="like" value="Like" alt="{{post.id}}">
+                        -->
                         <div class="comments" ng-repeat="comment in post.comments track by $index">
                             <div class="comment">{{comment}}</div>
                         </div>
-                        <form action="/webDevMiniProject/postJSON.php" method="POST">
+                        <form id="{{'form-' + post.id}}" action="/webDevMiniProject/postJSON.php" method="POST">
                             <input type="hidden" name="action" value="Comment">
                             <input type="hidden" name="id" value="{{post.id}}">
-                            <input type="text" name="cmt-msg" id="cmt-{{post.id}}">
-                            <input type="submit" value="Comment" alt="{{post.id}}">
+                            <input type="text" name="cmt-msg" id="{{'cmt-' + post.id}}" required>
+                            <input type="submit" xlass="cmt-btn" value="Comment" alt="{{post.id}}">
                         </form>
                         <input type="hidden" id="{{post.id + '-anchor'}}">
                     </div>
-                    <!--
-                    <form id="{{'form-' + post.id}}" action="/webDevMiniProject/postJSON.php" method="POST">
-                        <input type="hidden" name="action" value="Comment">
-                        <input type="hidden" name="id" value="{{post.id}}">
-                        <input type="text" class="cmt-msg" name="cmt-msg" id="{{'cmt-' + post.id}}">
-                        <input type="button" class="cmt-btn" value="Comment" alt="{{post.id}}">
-                    </form>
-                    -->
                 </div>
             </div>
         </center>

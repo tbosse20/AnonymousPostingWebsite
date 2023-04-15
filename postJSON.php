@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $postID = $_POST["id"];
 
     function get_data($file_name, $postID) {
-
+        
 
 		if (file_exists("$file_name")) {
 			$current_data=file_get_contents("$file_name");
@@ -17,15 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		} else {
 			$array_data=array();
             echo "file not exist<br/>";
-
         }
         
         $action = $_POST["action"];
         if ($action == "Post") {
+
+            if (!isset($_POST["msg"])) die("Missing msg");
+            $msg = $_POST["msg"];
+            if (strlen($msg) <= 0) die("Msg empty");
+            
             $extra=array(
                 "id"        => count($array_data),
                 "user"      => "Anonymous",
-                "msg"       => $_POST["msg"],
+                "msg"       => $msg,
                 "dateStamp" => time(),
                 "likes"     => 0,
                 "comments"  => array(),
@@ -33,9 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $array_data[] = $extra;
 
         } else if ($action == "Comment") {
-            $comment = $_POST["cmt-msg"];
-            
-            $array_data[$postID]["comments"][] = $comment;
+
+            if (!isset($_POST["cmt-msg"])) die("Missing cmt");
+            $cmt = $_POST["cmt-msg"];
+            if (strlen($cmt) <= 0) die("Cmt empty");
+
+            $array_data[$postID]["comments"][] = $cmt;
             
         } else if ($action == "Like") {
 
