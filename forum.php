@@ -37,13 +37,16 @@
                         <input type="button" class="like" value="Like" alt="{{post.id}}">
                         -->
                         <div class="comments" ng-repeat="comment in post.comments track by $index">
-                            <div class="comment">{{comment}}</div>
+                            <div class="comment">
+                                <span class="cmt-msg">{{comment.cmt}}</span>
+                                <span class="cmt-date">{{comment.dateStamp}}</span>
+                            </div>
                         </div>
                         <form id="{{'form-' + post.id}}" action="/webDevMiniProject/postJSON.php" method="POST">
                             <input type="hidden" name="action" value="Comment">
                             <input type="hidden" name="id" value="{{post.id}}">
                             <input type="text" name="cmt-msg" id="{{'cmt-' + post.id}}" required>
-                            <input type="submit" xlass="cmt-btn" value="Comment" alt="{{post.id}}">
+                            <input type="submit" class="cmt-btn" value="Comment" alt="{{post.id}}">
                         </form>
                         <input type="hidden" id="{{post.id + '-anchor'}}">
                     </div>

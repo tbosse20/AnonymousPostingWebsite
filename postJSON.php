@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     function get_data($file_name, $postID) {
         
+        $array_data; // Declare array data
+
         // Get JSON file
 		if (file_exists("$file_name")) {
 			$current_data=file_get_contents("$file_name");
@@ -49,7 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $packedCmt = array(
                 "cmt-msg"   => $cmt,
                 "dateStamp" => time(),
-            )
+            );
+            echo $array_data;
             
             // Append comment to post
             $array_data[$postID]["comments"][] = $packedCmt;
