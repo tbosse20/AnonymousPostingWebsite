@@ -4,29 +4,30 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $postID = $_POST["id"];
-
     function get_data($file_name, $postID) {
         
-
+        // Get JSON file
 		if (file_exists("$file_name")) {
 			$current_data=file_get_contents("$file_name");
 			$array_data=json_decode($current_data, true);
             echo "file exist<br/>";
-            
+        
+        // Create JSON file
 		} else {
 			$array_data=array();
             echo "file not exist<br/>";
         }
         
-        $action = $_POST["action"];
+        $action = $_POST["action"]; // Get selected action
         if ($action == "Post") {
-
+            
+            // Check msg 
             if (!isset($_POST["msg"])) die("Missing msg");
             $msg = $_POST["msg"];
             if (strlen($msg) <= 0) die("Msg empty");
             
-            $extra=array(
+            // Create new post
+            $post=array(
                 "id"        => count($array_data),
                 "user"      => "Anonymous",
                 "msg"       => $msg,
@@ -34,26 +35,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 "likes"     => 0,
                 "comments"  => array(),
             );
-            $array_data[] = $extra;
+            $array_data[] = $post;
 
+        // Comment on excisting post
         } else if ($action == "Comment") {
 
+            // Check comment message
             if (!isset($_POST["cmt-msg"])) die("Missing cmt");
             $cmt = $_POST["cmt-msg"];
             if (strlen($cmt) <= 0) die("Cmt empty");
-
-            $array_data[$postID]["comments"][] = $cmt;
             
+            // Create comment
+            $packedCmt = array(
+                "cmt-msg"   => $cmt,
+                "dateStamp" => time(),
+            )
+            
+            // Append comment to post
+            $array_data[$postID]["comments"][] = $packedCmt;
+        
+        // Like existing
         } else if ($action == "Like") {
 
         }
 
+        // Return JSON file
         return json_encode($array_data, JSON_PRETTY_PRINT);
 		
     }
 
-	$file_name = 'forum.json';
+	$file_name = 'forum.json'; // JSON file name
+    $postID = $_POST["id"]; // Post ID
 
+    // Confirm post success
     if (file_put_contents("$file_name", get_data($file_name, $postID))) {
 		echo 'success';
         $status = "success";
@@ -62,11 +76,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $status = "error";
 	}
 
-    ob_start(); // ensures anything dumped out will be caught
+    ob_start(); // Ensures anything dumped out will be caught
 
+    // URL to continue to after interaction
     $url = 'http://localhost/webDevMiniProject/forum.php';
 
-    echo $postID;
+    echo $postID; // Write post ID
+
+    // Go to URL with status and anchor
     header( "Location: $url" . "?status=" . $status . "#" . $postID . "-anchor");
 }
 	
