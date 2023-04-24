@@ -10,7 +10,7 @@
     <div id="strip">
         <center>
             <h1>Write a new post!</h1>
-            <form id="form" action="/webDevMiniProject/postJSON.php" method="POST" name="myForm">
+            <form id="form" action="/webDevMiniProject/postServer.php" method="POST" name="myForm">
                 <ul id="inputs">
                     <input type="hidden" name="action" value="Post">
                     <li><textarea type="text" name="msg" id="message" aria-required="true"></textarea></li>
@@ -28,9 +28,9 @@
                 <div class="post" ng-repeat="post in posts">
                     <div class="post-msg">
                         <input type="hidden" value="{{post.id}}">
-                        <h2 class="user">By {{post.user}}</h2>
+                        <h2 class="name">By {{post.name}}</h2>
                         <p class="message">{{post.msg}}</p>
-                        <span class="date">Posted {{post.dateStamp}}</span>
+                        <span class="date">Posted {{post.date}}</span>
                         <br>
                         <!--
                         <span class="likes">{{post.likes}}</span>
@@ -38,6 +38,7 @@
                         -->
                         <hr>
                     </div>
+                    <!--
                     <div class="comments" ng-repeat="comment in post.comments track by $index">
                         <div class="comment">
                             <p class="cmt-msg">{{comment.cmt}}</p>
@@ -52,6 +53,7 @@
                         <input type="submit" class="cmt-btn" value="Comment" alt="{{post.id}}">
                     </form>
                     <input type="hidden" id="{{post.id + '-anchor'}}">
+                    -->
                 </div>
             </div>
         </center>

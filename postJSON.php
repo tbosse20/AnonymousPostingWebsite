@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             // Check msg 
             if (!isset($_POST["msg"])) die("Missing msg");
-            $msg = $_POST["msg"];
+            $msg = $_POST["msg"]; 
             if (strlen($msg) <= 0) die("Msg empty");
             
             // Create new post

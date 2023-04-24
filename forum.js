@@ -15,8 +15,10 @@ $(document).on('click', '.cmt-btn', function() {
 
 var app = angular.module("myApp", []);
 app.controller("myCtrl", function($scope, $http) {
-    $http.get("forum.json").then(function (response) {
+    $http.get("getData.php").then(function (response) {
         $scope.posts = response.data;
+        $scope.columnNames = Object.keys(response.data[0]); // get column names dynamically
+
     });
 });
 
