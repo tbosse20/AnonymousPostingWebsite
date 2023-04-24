@@ -8,6 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $array_data; // Declare array data
 
+        $dateTime = date("Y-m-d H:i:s"); 
+        $newDateTime = new DateTime($dateTime); 
+        $newDateTime->setTimezone(new DateTimeZone("UTC")); 
+        $dateTimeUTC = $newDateTime->format("Y-m-d H:i:s");
+
         // Get JSON file
 		if (file_exists("$file_name")) {
 			$current_data=file_get_contents("$file_name");
@@ -33,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 "id"        => count($array_data),
                 "user"      => "Anonymous",
                 "msg"       => $msg,
-                "dateStamp" => time(),
+                "dateStamp" => $dateTimeUTC,
                 "likes"     => 0,
                 "comments"  => array(),
             );
@@ -50,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Create comment
             $packedCmt = array(
                 "cmt-msg"   => $cmt,
-                "dateStamp" => time(),
+                "dateStamp" => $dateTimeUTC,
             );
             echo $array_data;
             
