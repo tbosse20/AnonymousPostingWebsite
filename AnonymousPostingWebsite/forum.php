@@ -2,8 +2,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script type="text/javascript" src="/webDevMiniProject/forum.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/form.css" />
-    <link rel="stylesheet" type="text/css" href="css/forum.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/form.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/forum.css" />
     <title>Tonko Bossen - Forum</title>
 </head>
 <body>

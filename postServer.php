@@ -25,7 +25,8 @@ $cmts = "cmts?";
 
 
 // Insert data into database
-$sql = "INSERT INTO posts (id, date, name, msg, cmts) VALUES ('$id', '$dateTime', '$name', '$msg', '$cmts')";
+$sql = "INSERT INTO posts (id, post_date, name, msg, cmts)
+VALUES ('$id', '$dateTime', '$name', '$msg', '$cmts')";
 
 if (mysqli_query($conn, $sql)) {
 	echo "Data inserted successfully";

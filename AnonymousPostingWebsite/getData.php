@@ -13,7 +13,7 @@ if (!$conn) {
 }
 
 // Retrieve data from database
-$sql = "SELECT * FROM posts";
+$sql = "SELECT * FROM posts ORDER BY post_date DESC";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
