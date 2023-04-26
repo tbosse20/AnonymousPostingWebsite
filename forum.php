@@ -32,10 +32,6 @@
                         <p class="message">{{post.msg}}</p>
                         <span class="date">Posted {{post.post_date}}</span>
                         <br>
-                        <!--
-                        <span class="likes">{{post.likes}}</span>
-                        <input type="button" class="like" value="Like" alt="{{post.id}}">
-                        -->
                         <hr>
                     </div>
                     <!--

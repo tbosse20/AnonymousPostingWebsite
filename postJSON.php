@@ -62,9 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Append comment to post
             $array_data[$postID]["comments"][] = $packedCmt;
         
-        // Like existing
-        } else if ($action == "Like") {
-
         }
 
         // Return JSON file

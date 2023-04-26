@@ -1,0 +1,28 @@
+[
+    {
+        "id": 0,
+        "user": "Anonymous",
+        "msg": "How to tell if your peers are weird?? HELP!",
+        "dateStamp": 0,
+        "likes": 0,
+        "comments": [
+        ]
+    },
+    {
+        "id": 1,
+        "user": "Anonymous",
+        "msg": "What do you get when you mix bacon and .. video games ??",
+        "dateStamp": 0,
+        "likes": 3132,
+        "comments": [
+        ]
+    },
+    {
+        "id": 3,
+        "user": "Anonymous",
+        "msg": "Post it!?",
+        "dateStamp": 1679957377,
+        "likes": 0,
+        "comments": []
+    }
+]
