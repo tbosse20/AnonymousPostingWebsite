@@ -1,16 +1,16 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script type="text/javascript" src="/webDevMiniProject/forum.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/form.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/forum.css" />
+    <script type="text/javascript" src="/AnonymousPostingWebsite/forum.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/form.css" />
+    <link rel="stylesheet" type="text/css" href="css/forum.css" />
     <title>Tonko Bossen - Forum</title>
 </head>
 <body>
     <div id="strip">
         <center>
             <h1>Write a new post!</h1>
-            <form id="form" action="/webDevMiniProject/postServer.php" method="POST" name="myForm">
+            <form id="form" action="/AnonymousPostingWebsite/postServer.php" method="POST" name="myForm">
                 <ul id="inputs">
                     <input type="hidden" name="action" value="Post">
                     <li><textarea type="text" name="msg" id="message" aria-required="true"></textarea></li>

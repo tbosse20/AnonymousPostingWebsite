@@ -1,10 +1,11 @@
 // https://stackoverflow.com/questions/30680562/send-form-data-with-jquery-ajax-json
+// Comment in JSON files
 $(document).on('click', '.cmt-btn', function() {
     const id = this.alt;
     var element = angular.element($("forum"));
     element.scope().$apply();
     $.ajax({
-        url: '/webDevMiniProject/postJSON.php', // url where to submit the request
+        url: '/AnonymousPostingWebsite/postJSON.php', // url where to submit the request
         type : "POST", // type of action POST || GET
         dataType : 'json', // data type
         data : $("#form-" + id).serialize(),
