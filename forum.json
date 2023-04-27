@@ -5,8 +5,7 @@
         "msg": "How to tell if your peers are weird?? HELP!",
         "dateStamp": 0,
         "likes": 0,
-        "comments": [
-        ]
+        "comments": []
     },
     {
         "id": 1,
@@ -14,14 +13,21 @@
         "msg": "What do you get when you mix bacon and .. video games ??",
         "dateStamp": 0,
         "likes": 3132,
-        "comments": [
-        ]
+        "comments": []
     },
     {
         "id": 3,
         "user": "Anonymous",
         "msg": "Post it!?",
         "dateStamp": 1679957377,
+        "likes": 0,
+        "comments": []
+    },
+    {
+        "id": 3,
+        "user": "Anonymous",
+        "msg": "dawd",
+        "dateStamp": "2023-04-26 17:06:36",
         "likes": 0,
         "comments": []
     }

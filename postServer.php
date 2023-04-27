@@ -40,7 +40,7 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 // URL to continue to after interaction
-$url = 'http://localhost/webDevMiniProject/forum.php';
+$url = 'http://localhost/AnonymousPostingWebsite/forum.php';
 $location = "Location: $url" . "?status=" . $status;
 
 if ($postID != null) {

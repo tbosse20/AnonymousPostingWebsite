@@ -10,6 +10,7 @@
     <div id="strip">
         <center>
             <h1>Write a new post!</h1>
+            <!-- JSON version -> Change "postServer.php" to "postJSON.php" -->
             <form id="form" action="/AnonymousPostingWebsite/postServer.php" method="POST" name="myForm">
                 <ul id="inputs">
                     <input type="hidden" name="action" value="Post">
@@ -34,7 +35,7 @@
                         <br>
                         <hr>
                     </div>
-                    <!--
+                    <!-- JSON version -> Uncomment this section
                     <div class="comments" ng-repeat="comment in post.comments track by $index">
                         <div class="comment">
                             <p class="cmt-msg">{{comment.cmt}}</p>

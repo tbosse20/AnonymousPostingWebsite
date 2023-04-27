@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ob_start(); // Ensures anything dumped out will be caught
 
     // URL to continue to after interaction
-    $url = 'http://localhost/webDevMiniProject/forum.php';
+    $url = 'http://localhost/AnonymousPostingWebsite/forum.php';
 
     echo $postID; // Write post ID
 
