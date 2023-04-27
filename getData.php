@@ -1,16 +1,6 @@
 <?php
 
-// Set up database connection
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "forum_posts";
-
-$conn = mysqli_connect($host, $user, $password, $database);
-
-if (!$conn) {
-	die("Connection failed: " . mysqli_connect_error());
-}
+include "ConnectDatabase.php"; // Set up database connection
 
 // Retrieve data from database
 $sql = "SELECT * FROM posts ORDER BY post_date DESC";

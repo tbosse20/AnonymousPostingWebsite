@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     function get_data($file_name, $postID) {
         
         $array_data; // Declare array data
-
+        
+        // Generate date
         $dateTime = date("Y-m-d H:i:s"); 
         $newDateTime = new DateTime($dateTime); 
         $newDateTime->setTimezone(new DateTimeZone("UTC")); 
@@ -27,19 +28,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $action = $_POST["action"]; // Get selected action
         if ($action == "Post") {
+
+            // Check topic
+            if (!isset($_POST["topic"])) die("Missing topic");
+            $topic = htmlspecialchars($_POST["topic"]);
+            if (strlen($topic) <= 0) die("Topic empty");
             
-            // Check msg 
+            // Check msg
             if (!isset($_POST["msg"])) die("Missing msg");
-            $msg = $_POST["msg"]; 
+            $msg = htmlspecialchars($_POST["msg"]);
             if (strlen($msg) <= 0) die("Msg empty");
             
             // Create new post
             $post=array(
                 "id"        => count($array_data),
-                "user"      => "Anonymous",
+                "topic"     => $topic,
                 "msg"       => $msg,
-                "dateStamp" => $dateTimeUTC,
-                "likes"     => 0,
+                "post_date" => $dateTimeUTC,
                 "comments"  => array(),
             );
             $array_data[] = $post;
@@ -48,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else if ($action == "Comment") {
 
             // Check comment message
-            if (!isset($_POST["cmt-msg"])) die("Missing cmt");
-            $cmt = $_POST["cmt-msg"];
+            if (!isset($_POST["cmt_msg"])) die("Missing cmt");
+            $cmt = $_POST["cmt_msg"];
             if (strlen($cmt) <= 0) die("Cmt empty");
             
             // Create comment
             $packedCmt = array(
-                "cmt-msg"   => $cmt,
-                "dateStamp" => $dateTimeUTC,
+                "cmt_msg"   => $cmt,
+                "post_date" => $dateTimeUTC,
             );
             echo $array_data;
             
