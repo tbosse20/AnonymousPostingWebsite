@@ -1,4 +1,4 @@
-#form {
+#forumForm {
     background-color: lavender;
     padding: 15px;
     width: 400px;
@@ -44,6 +44,6 @@ input:hover {
     background-color: #fcfcff;
 }
 
-#message, li:has(#message) {
+#msg, li:has(#msg) {
     height: 100px;
 }

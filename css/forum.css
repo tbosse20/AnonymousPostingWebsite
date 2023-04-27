@@ -1,4 +1,4 @@
-#form {
+#forumForm {
     width: 400px;
 }
 
@@ -6,12 +6,12 @@
     width: 100%;
 }
 
-#message, li:has(#message) {
+#msg, li:has(#msg) {
     height: 200px;
     width: 100%;
 }
 
-#message {
+#msg {
     padding: 10px;
     resize: none;
     background-color: #fcfcff;
@@ -31,7 +31,7 @@
 }
 
 .name,
-.message {
+.msg {
     padding: 0px;
     margin: 5px;
     text-align: left;

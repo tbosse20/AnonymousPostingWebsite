@@ -1,6 +1,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="/AnonymousPostingWebsite/forum.js"></script>
     <link rel="stylesheet" type="text/css" href="css/form.css" />
     <link rel="stylesheet" type="text/css" href="css/forum.css" />
@@ -10,21 +11,16 @@
     <div id="strip">
         <center>
             <h1>Write a new post!</h1>
-            <!-- JSON version -> Change "postServer.php" to "postJSON.php" -->
-            <form id="form" action="/AnonymousPostingWebsite/postServer.php" method="POST" name="myForm">
+            <form id="forumForm">
                 <ul id="inputs">
-                    <input type="hidden" name="action" value="Post">
-                    <li>Topic  <input type="text" name="topic" id="topic" aria-required="true"></input></li>
-                    <li><textarea type="text" name="msg" id="message" aria-required="true"></textarea></li>
-                    <li><button type="submit" name="submit" id="submit">Post</button></li>
+                    <input type="hidden" id="action" value="Post">
+                    <li>Topic  <input type="text" id="topic" aria-required="true"></input></li>
+                    <li><textarea type="text" id="msg" aria-required="true"></textarea></li>
+                    <li><button id="submit">Post</button></li>
                 </ul>
+                <span id="status"></span>
+                <span id="thxMsg"></span>
             </form>
-            
-            <?php
-                if (isset($_GET['status'])) {
-                    echo $_GET["status"];
-                }
-            ?>
                 
             <div id="forum" ng-app="myApp" ng-controller="myCtrl">
                 <div class="post" ng-repeat="post in posts">

@@ -1,12 +1,12 @@
 [
     {
         "id": 0,
-        "topic": "Anonymous",
+        "topic": "How?!",
         "msg": "How to tell if your peers are weird?? HELP!",
         "post_date": "2023-04-27 17:29:48",
         "comments": [
             {
-                "cmt_msg": "aadawdawdawdadadawdawdwd",
+                "cmt_msg": "Whaa???",
                 "post_date": "2023-04-27 17:29:48"
             }
         ]
@@ -18,23 +18,16 @@
         "post_date": "2023-04-27 17:29:48",
         "comments": [
             {
-                "cmt_msg": "dawdawd",
+                "cmt_msg": "Video games?",
                 "post_date": "2023-04-27 17:38:19"
             }
         ]
     },
     {
         "id": 3,
-        "topic": "Anonymous",
+        "topic": "Post it!!",
         "msg": "Post it!?",
         "post_date": "2023-04-27 17:29:48",
-        "comments": []
-    },
-    {
-        "id": 4,
-        "topic": "Anonymous",
-        "msg": "dawd",
-        "post_date": "2023-04-26 17:06:36",
         "comments": []
     }
 ]

@@ -1,10 +1,9 @@
 <?php
 
-/* https://www.geeksforgeeks.org/how-to-append-data-in-json-file-through-html-form-using-php/ */
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    function get_data($file_name, $postID) {
+    function get_data($file_name) {
         
         $array_data; // Declare array data
         
@@ -18,12 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (file_exists("$file_name")) {
 			$current_data=file_get_contents("$file_name");
 			$array_data=json_decode($current_data, true);
-            echo "file exist<br/>";
+            // echo "file exist<br/>";
         
         // Create JSON file
 		} else {
 			$array_data=array();
-            echo "file not exist<br/>";
+            // echo "file not exist<br/>";
         }
         
         $action = $_POST["action"]; // Get selected action
@@ -65,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo $array_data;
             
             // Append comment to post
+            $postID = $_POST["id"]; // Post ID
             $array_data[$postID]["comments"][] = $packedCmt;
         
         }
@@ -75,26 +75,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 	$file_name = 'forum.json'; // JSON file name
-    $postID = $_POST["id"]; // Post ID
 
     // Confirm post success
-    if (file_put_contents("$file_name", get_data($file_name, $postID))) {
-		echo 'success';
-        $status = "success";
-	} else {
-		echo 'There is some error';	
-        $status = "error";
-	}
+    if (file_put_contents("$file_name", get_data($file_name))) {
+        echo "Post successfull!";
+    } else {
+        echo "Post error: " . $sql . "<br>" . $mysqli_error($conn);
+    }
 
     ob_start(); // Ensures anything dumped out will be caught
-
-    // URL to continue to after interaction
-    $url = 'http://localhost/AnonymousPostingWebsite/forum.php';
-
-    echo $postID; // Write post ID
-
-    // Go to URL with status and anchor
-    header( "Location: $url" . "?status=" . $status . "#" . $postID . "-anchor");
 }
 	
 ?>
